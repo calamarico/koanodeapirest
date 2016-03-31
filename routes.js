@@ -3,17 +3,15 @@
  * @module routes
  */
 
-var express = require('express'),
-  client = require('./client.js'),
-  router = express.Router();
+var client = require('./client.js'),
+  router = require('koa-router')();
 
 router.get('/', function (req, res) {
   res.send('TrendMicro Node API Rest');
 });
 
-router.route('/login')
-  .post(client.login)
-  .delete(client.logout);
+router.post('/login', client.login);
+router.delete('/login', client.logout);
 router.get('/computers/groups', client.getComputerGroups);
 router.get('/computers/hosts', client.getComputerHosts);
 router.get('/computers/hosts/detail', client.getComputerHostsDetail);

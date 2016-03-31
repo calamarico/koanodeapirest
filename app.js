@@ -3,8 +3,8 @@
  * @module app
  */
 
-var express = require('express'),
-  app = express(),
+var koa = require('koa'),
+  app = koa(),
   bodyParser = require('body-parser'),
   logger = require('./logger.js'),
   routes = require('./routes.js'),
